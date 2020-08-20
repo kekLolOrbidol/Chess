@@ -1,0 +1,43 @@
+package com.peshenki.chess;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    Button btnSingle;
+    Button btnMulti;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btnSingle = (Button) findViewById(R.id.button3);
+        btnSingle.setOnClickListener(this);
+        btnMulti = (Button) findViewById(R.id.button2);
+        btnMulti.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, GameActivity.class);
+        switch (v.getId()){
+            case R.id.button2: //2 player
+                SharedPreferences sPref = getSharedPreferences("sPref", 0);
+                SharedPreferences.Editor ed = sPref.edit();
+                ed.putInt("saved_back", R.drawable.fon2);
+                ed.apply();
+                intent.putExtra("type", 2);
+                startActivity(intent);
+                break;
+            case R.id.button3:
+                Intent intent2 = new Intent(this, ChooseBackgroundActivity.class);
+                startActivity(intent2);
+                break;
+        }
+    }
+
+}
