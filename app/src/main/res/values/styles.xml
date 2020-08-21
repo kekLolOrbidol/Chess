@@ -3,8 +3,8 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">#000</item>
+        <item name="colorAccent">#000</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -14,8 +14,8 @@
 
     <style name="RoundedCornerButton" parent="@style/Widget.AppCompat.Button.Colored">
         <item name="background">@drawable/circle_button</item>
-        <item name="colorButtonNormal">#1a237e</item>
-        <item name="colorControlHighlight">#673ab7</item>
+        <item name="colorButtonNormal">#000</item>
+        <item name="colorControlHighlight">#000</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

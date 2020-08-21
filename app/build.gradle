@@ -14,10 +14,38 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+
+        production {
+            storeFile file("../keystore/android_release.keystore")
+            storePassword "pechenki_chess_release_pass"
+            keyAlias "pechenki_chess_release"
+            keyPassword "pechenki_chess_release_pass"
+        }
+
+        debug {
+            storeFile file("../keystore/android_debug.keystore")
+            storePassword "pechenki_chess_debug_pass"
+            keyAlias "pechenki_chess_debug"
+            keyPassword "pechenki_chess_debug_pass"
+        }
+
+    }
+
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
 }

@@ -97,14 +97,14 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
         bitmapQueenbl = BitmapFactory.decodeResource(getResources(), R.drawable.queenbl);
         bitmapKingwh = BitmapFactory.decodeResource(getResources(), R.drawable.kingwh);
         bitmapKingbl = BitmapFactory.decodeResource(getResources(), R.drawable.kingbl);
-        bitmapRevert = BitmapFactory.decodeResource(getResources(), R.drawable.revert);
-        bitmapBack = BitmapFactory.decodeResource(getResources(), R.drawable.revert);
+        bitmapRevert = BitmapFactory.decodeResource(getResources(), R.drawable.undo);
+        bitmapBack = BitmapFactory.decodeResource(getResources(), R.drawable.back);
         sideSrc = new Rect(0, 0, bitmapSide.getWidth(), bitmapSide.getHeight());
         sideDstTop = new Rect(0, 0, width, OFFSET);
         sideDstBot = new Rect(0, 8 * scale + OFFSET, width, height);
         pointSrc = new Rect(0, 0, bitmapPoint.getWidth(), bitmapPoint.getHeight());
-        revertDst = new Rect(7*scale, 0, width, scale);
-        backDst = new Rect(0, 0, width/7, scale);
+        revertDst = new Rect(7*scale - 30, 0 + 30, width - 30, scale + 30);
+        backDst = new Rect(0 + 30, 0 + 30, width/7 + 30, scale + 30);
     }
 
     @Override
@@ -151,11 +151,11 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
                 for(int j = 0; j < 8; j++) {
                     if((i + j) % 2 == 1){
                         paint.setStyle(Paint.Style.FILL);
-                        paint.setColor(Color.rgb(120, 89, 58));
+                        paint.setColor(Color.rgb(255, 255, 255));
                     }
                     else{
                         paint.setStyle(Paint.Style.FILL);
-                        paint.setColor(Color.rgb(199, 192, 186));
+                        paint.setColor(Color.rgb(184, 134, 11));
                     }
                     canvas.drawRect(i * scale, j * scale + OFFSET, (i+1) * scale, (j+1) * scale + OFFSET, paint);
                 }

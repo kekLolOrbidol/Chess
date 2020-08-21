@@ -27,6 +27,10 @@ public class ChooseBackgroundActivity extends AppCompatActivity  {
         items.add(new BackgroundItem(R.drawable.fon2));
         items.add(new BackgroundItem(R.drawable.fon3));
         items.add(new BackgroundItem(R.drawable.fon5));
+        items.add(new BackgroundItem(R.drawable.fon6));
+        items.add(new BackgroundItem(R.drawable.fon7));
+        items.add(new BackgroundItem(R.drawable.fon8));
+        items.add(new BackgroundItem(R.drawable.back_main));
 
         final Intent intent = new Intent(this, GameActivity.class);
 
