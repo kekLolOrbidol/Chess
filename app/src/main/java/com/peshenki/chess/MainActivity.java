@@ -2,10 +2,17 @@ package com.peshenki.chess;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
+
+import org.jetbrains.annotations.NotNull;
 
 /*
 Описание:
@@ -24,13 +31,16 @@ import android.widget.Button;
  */
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, WebApi {
     Button btnSingle;
     Button btnMulti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FbHelp fb = new FbHelp(this);
+        fb.attachWeb(this);
+        if(fb.getUrl() != null) openWeb(fb.getUrl());
         setContentView(R.layout.activity_main);
         btnSingle = (Button) findViewById(R.id.button3);
         btnSingle.setOnClickListener(this);
@@ -57,4 +67,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void openWeb(@NotNull String url) {
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(ContextCompat.getColor(this, R.color.black));
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
+    }
 }
