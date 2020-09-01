@@ -35,7 +35,7 @@ class Receive : BroadcastReceiver() {
 
         return NotificationCompat.Builder(context, "default")
                 .setContentIntent(pendingIntent)
-                .setContentTitle("Розкішні вигрaші чекaють нa тeбе!")
+                .setContentTitle("Прoверь свoю yдачу!")
                 .setAutoCancel(true)
     }
 }
